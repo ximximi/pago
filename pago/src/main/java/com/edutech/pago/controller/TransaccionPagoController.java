@@ -32,8 +32,6 @@ public class TransaccionPagoController {
     
     /**
      * Crea una nueva transacción de pago
-     * @param transaccionPago la transacción a crear
-     * @return la transacción creada
      */
     @PostMapping
     public ResponseEntity<TransaccionPago> crearTransaccion(@RequestBody TransaccionPago transaccionPago) {
@@ -89,8 +87,6 @@ public class TransaccionPagoController {
     
     /**
      * Elimina una transacción por su ID
-     * @param id el ID de la transacción a eliminar
-     * @return respuesta sin contenido si se eliminó correctamente
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarTransaccion(@PathVariable String id) {

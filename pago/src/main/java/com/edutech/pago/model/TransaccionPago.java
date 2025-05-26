@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @Table(name = "transacciones_pago")
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,19 +37,11 @@ public class TransaccionPago {
     
     private LocalDateTime fechaCreacion;
     
-    /**
-     * Método para iniciar un proceso de pago
-     * @return true si el pago se inició correctamente
-     */
     public boolean iniciarPago() {
         this.estadoInterno = EstadoPago.PENDIENTE;
         return true;
     }
     
-    /**
-     * Método para confirmar un pago con un servicio externo
-     * @return true si el pago se confirmó correctamente
-     */
     public boolean confirmarPagoExt() {
         if (this.estadoInterno == EstadoPago.PENDIENTE) {
             this.estadoInterno = EstadoPago.COMPLETADO;
@@ -59,10 +50,6 @@ public class TransaccionPago {
         return false;
     }
     
-    /**
-     * Método para consultar el estado actual del pago
-     * @return el estado actual del pago
-     */
     public EstadoPago consultarEstado() {
         return this.estadoInterno;
     }

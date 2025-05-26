@@ -22,8 +22,6 @@ public class TransaccionPagoService {
     
     /**
      * Crea una nueva transacción de pago
-     * @param transaccionPago la transacción a crear
-     * @return la transacción creada
      */
     public TransaccionPago crearTransaccion(TransaccionPago transaccionPago) {
         // Generar ID único si no se proporciona
@@ -39,7 +37,6 @@ public class TransaccionPagoService {
     
     /**
      * Obtiene todas las transacciones
-     * @return lista de todas las transacciones
      */
     public List<TransaccionPago> obtenerTodasLasTransacciones() {
         return transaccionPagoRepository.findAll();
@@ -47,8 +44,6 @@ public class TransaccionPagoService {
     
     /**
      * Obtiene una transacción por su ID
-     * @param id el ID de la transacción
-     * @return la transacción si existe
      */
     public Optional<TransaccionPago> obtenerTransaccionPorId(String id) {
         return transaccionPagoRepository.findById(id);
@@ -56,9 +51,6 @@ public class TransaccionPagoService {
     
     /**
      * Actualiza una transacción existente
-     * @param id el ID de la transacción a actualizar
-     * @param transaccionActualizada los nuevos datos de la transacción
-     * @return la transacción actualizada o null si no existe
      */
     public TransaccionPago actualizarTransaccion(String id, TransaccionPago transaccionActualizada) {
         Optional<TransaccionPago> transaccionExistente = transaccionPagoRepository.findById(id);
@@ -79,8 +71,6 @@ public class TransaccionPagoService {
     
     /**
      * Elimina una transacción por su ID
-     * @param id el ID de la transacción a eliminar
-     * @return true si se eliminó correctamente
      */
     public boolean eliminarTransaccion(String id) {
         if (transaccionPagoRepository.existsById(id)) {
@@ -92,8 +82,6 @@ public class TransaccionPagoService {
     
     /**
      * Confirma un pago pendiente
-     * @param id el ID de la transacción a confirmar
-     * @return la transacción actualizada o null si no existe o no se pudo confirmar
      */
     public TransaccionPago confirmarPago(String id) {
         Optional<TransaccionPago> transaccionOpt = transaccionPagoRepository.findById(id);
@@ -111,8 +99,6 @@ public class TransaccionPagoService {
     
     /**
      * Obtiene transacciones por estado
-     * @param estado el estado a filtrar
-     * @return lista de transacciones con el estado especificado
      */
     public List<TransaccionPago> obtenerTransaccionesPorEstado(EstadoPago estado) {
         return transaccionPagoRepository.findByEstadoInterno(estado);
@@ -120,8 +106,6 @@ public class TransaccionPagoService {
     
     /**
      * Obtiene transacciones por usuario
-     * @param idUsuario el ID del usuario
-     * @return lista de transacciones del usuario
      */
     public List<TransaccionPago> obtenerTransaccionesPorUsuario(String idUsuario) {
         return transaccionPagoRepository.findByIdUsuario(idUsuario);
